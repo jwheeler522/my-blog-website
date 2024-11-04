@@ -40,13 +40,13 @@ const IndexPage = ({ data }) => {
         >
           <Link 
             to="/blog" 
-            className="px-10 py-4 rounded-lg bg-white text-blue-600 font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="px-10 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             Start Reading
           </Link>
           <Link 
             to="/about" 
-            className="px-10 py-4 rounded-lg bg-white text-blue-600 font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="px-10 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             Learn More
           </Link>

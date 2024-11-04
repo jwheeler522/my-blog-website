@@ -90,5 +90,17 @@ module.exports = {
         exclude: ['/404', '/404.html', '/dev-404-page'],
       },
     },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`, `avif`],
+          placeholder: `blurred`,
+          quality: 90,
+          breakpoints: [750, 1080, 1366, 1920],
+          backgroundColor: `transparent`
+        }
+      }
+    },
   ],
-}; 
+};

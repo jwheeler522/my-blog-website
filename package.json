@@ -8,7 +8,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "start": "gatsby develop"
+    "start": "gatsby develop",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
   },
   "keywords": [],
   "author": "",
@@ -52,6 +54,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14"
   }

@@ -26,6 +26,9 @@ const BlogPostTemplate = ({ data }) => {
     }
   };
 
+  console.log('Products:', post.frontmatter.products);
+  console.log('BlogPostTemplate data:', data);
+
   return (
     <Layout>
       <ReadingProgress />
@@ -125,14 +128,11 @@ const BlogPostTemplate = ({ data }) => {
   );
 };
 
+export default BlogPostTemplate;
+
 export const query = graphql`
-  query($slug: String!) {
+  query BlogPostBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      body
-      excerpt
-      fields {
-        slug
-      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -140,13 +140,14 @@ export const query = graphql`
         image {
           childImageSharp {
             gatsbyImageData(
-              width: 1200
-              height: 600
+              width: 800
+              height: 450
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
           }
         }
+        hasAffiliateLinks
         products {
           name
           price
@@ -155,23 +156,16 @@ export const query = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                width: 400
-                height: 300
+                width: 800
+                height: 450
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
               )
             }
           }
         }
-        hasAffiliateLinks
       }
-    }
-    site {
-      siteMetadata {
-        siteUrl
-      }
+      body
     }
   }
 `;
-
-export default BlogPostTemplate;
