@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolo Blog - Personal Finance & Budgeting Tips</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .tech-item {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .features {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .features li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="gradient-text">Lolo Blog</h1>
+    <p>A modern Gatsby-based blog focused on personal finance and budgeting tips.</p>
+
+    <h2>🚀 Features</h2>
+    <ul class="features">
+        <li>Built with Gatsby and React</li>
+        <li>MDX support for advanced content creation</li>
+        <li>Responsive design with Tailwind CSS</li>
+        <li>SEO optimized</li>
+        <li>Dark mode support</li>
+        <li>Image optimization</li>
+        <li>Product recommendations system</li>
+        <li>Reading progress indicator</li>
+    </ul>
+
+    <h2>🛠️ Tech Stack</h2>
+    <div class="tech-stack">
+        <div class="tech-item">Gatsby</div>
+        <div class="tech-item">React</div>
+        <div class="tech-item">MDX</div>
+        <div class="tech-item">Tailwind CSS</div>
+        <div class="tech-item">Framer Motion</div>
+    </div>
+
+    <h2>📦 Installation</h2>
+    <pre><code>git clone https://github.com/jwheeler522/my-blog-website.git
+cd my-blog-website
+npm install
+npm start</code></pre>
+
+    <h2>📝 License</h2>
+    <p>This project is licensed under the ISC License - see the LICENSE file for details.</p>
+
+    <footer>
+        <p>Created by JW - <a href="https://github.com/jwheeler522">GitHub Profile</a></p>
+    </footer>
+</body>
+</html>
