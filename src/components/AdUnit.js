@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 
 const AdUnit = ({ slot, format = 'auto' }) => {
@@ -23,29 +22,3 @@ const AdUnit = ({ slot, format = 'auto' }) => {
 };
 
 export default AdUnit;
-=======
-import React from 'react';
-
-const AdUnit = ({ slot, format = 'auto' }) => {
-  React.useEffect(() => {
-    if (window.adsbygoogle) {
-      window.adsbygoogle.push({});
-    }
-  }, []);
-
-  return (
-    <div className="ad-container my-8">
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" // Replace with your AdSense ID
-        data-ad-slot={slot}
-        data-ad-format={format}
-        data-full-width-responsive="true"
-      />
-    </div>
-  );
-};
-
-export default AdUnit;
->>>>>>> 1b1e9e5396a10c00e925cce370ac6724f53e72c3
