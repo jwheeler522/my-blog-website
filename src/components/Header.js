@@ -19,7 +19,7 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
             className="text-2xl font-bold gradient-text"
           >
-            Your Brand
+            DUNE side
           </motion.div>
         </Link>
         

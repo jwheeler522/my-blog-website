@@ -948,7 +948,7 @@ const Header = () => {
       scale: 0.95
     },
     className: "text-2xl font-bold gradient-text"
-  }, "Your Brand")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "DUNE side")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "flex items-center space-x-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "hidden md:flex items-center space-x-8"
@@ -1174,6 +1174,8 @@ const BlogPage = ({
   data
 }) => {
   const posts = data.allMdx.nodes || [];
+
+  // Motion animation container for staggered children
   const container = {
     hidden: {
       opacity: 0
@@ -1185,6 +1187,8 @@ const BlogPage = ({
       }
     }
   };
+
+  // Motion animation for each post
   const item = {
     hidden: {
       opacity: 0,

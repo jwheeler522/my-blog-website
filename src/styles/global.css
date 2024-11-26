@@ -1,9 +1,12 @@
+/* Importing Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Tailwind CSS imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Root custom properties (CSS Variables) */
 :root {
   --primary: #6366f1;    /* Indigo-500 */
   --primary-dark: #4f46e5; /* Indigo-600 */
@@ -15,18 +18,19 @@
   --text-secondary: #94a3b8;
 }
 
+/* Base Layer */
 @layer base {
   html {
     font-family: 'Poppins', system-ui, sans-serif;
     @apply text-slate-300;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', system-ui, sans-serif;
     font-weight: 600;
     @apply text-slate-100;
   }
-  
+
   body {
     @apply bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 
            min-h-screen transition-colors duration-200;
@@ -37,6 +41,7 @@
   }
 }
 
+/* Component Layer */
 @layer components {
   .prose {
     @apply prose-invert 
@@ -56,19 +61,19 @@
            prose-code:text-indigo-600
            prose-pre:bg-slate-100;
   }
-  
+
   .nav-link {
     @apply relative text-slate-300 
            hover:text-indigo-400 
            transition-colors duration-200;
   }
-  
+
   .nav-link::after {
     @apply content-[''] absolute left-0 bottom-[-4px]
            h-[2px] w-0 bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500
            transition-all duration-300;
   }
-  
+
   .nav-link:hover::after {
     @apply w-full;
   }

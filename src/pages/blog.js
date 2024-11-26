@@ -8,19 +8,21 @@ import { motion } from 'framer-motion';
 const BlogPage = ({ data }) => {
   const posts = data.allMdx.nodes || [];
 
+  // Motion animation container for staggered children
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
+  // Motion animation for each post
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+    show: { opacity: 1, y: 0 },
   };
 
   return (
@@ -40,6 +42,7 @@ const BlogPage = ({ data }) => {
           </p>
         </motion.div>
 
+        {/* Post grid container */}
         <motion.div 
           variants={container}
           initial="hidden"
@@ -48,12 +51,9 @@ const BlogPage = ({ data }) => {
         >
           {posts.map((post) => {
             const featuredImage = post.frontmatter.image ? getImage(post.frontmatter.image) : null;
+
             return (
-              <motion.article
-                key={post.id}
-                variants={item}
-                className="card group"
-              >
+              <motion.article key={post.id} variants={item} className="card group">
                 <Link to={post.fields.slug} className="block h-full">
                   <div className="aspect-w-16 aspect-h-9 rounded-t-xl overflow-hidden">
                     {featuredImage ? (
@@ -91,7 +91,11 @@ const BlogPage = ({ data }) => {
                     <div className="flex items-center gradient-text font-medium group-hover:translate-x-2 transition-transform duration-300">
                       Read more
                       <svg className="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                        <path 
+                          fillRule="evenodd" 
+                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" 
+                          clipRule="evenodd" 
+                        />
                       </svg>
                     </div>
                   </div>

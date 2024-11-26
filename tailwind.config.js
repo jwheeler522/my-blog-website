@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    // Add other directories as needed, such as for Markdown if you're using Gatsby or another framework
   ],
   darkMode: 'class',
   theme: {

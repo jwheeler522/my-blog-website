@@ -948,7 +948,7 @@ const Header = () => {
       scale: 0.95
     },
     className: "text-2xl font-bold gradient-text"
-  }, "Your Brand")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "DUNE side")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "flex items-center space-x-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "hidden md:flex items-center space-x-8"
