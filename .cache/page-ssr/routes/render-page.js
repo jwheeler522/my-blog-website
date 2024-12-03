@@ -2337,7 +2337,7 @@ exports.components = {
   "component---src-pages-blog-js": () => __webpack_require__.e(/*! import() | component---src-pages-blog-js */ "component---src-pages-blog-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/blog.js?export=default */ "./src/pages/blog.js?export=default")),
   "component---src-pages-contact-js": () => __webpack_require__.e(/*! import() | component---src-pages-contact-js */ "component---src-pages-contact-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/contact.js?export=default */ "./src/pages/contact.js?export=default")),
   "component---src-pages-index-js": () => __webpack_require__.e(/*! import() | component---src-pages-index-js */ "component---src-pages-index-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/index.js?export=default */ "./src/pages/index.js?export=default")),
-  "component---src-templates-blog-post-js": () => __webpack_require__.e(/*! import() | component---src-templates-blog-post-js */ "component---src-templates-blog-post-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/templates/blog-post.js?export=default */ "./src/templates/blog-post.js?export=default"))
+  "component---src-pages-sxs-js": () => __webpack_require__.e(/*! import() | component---src-pages-sxs-js */ "component---src-pages-sxs-js").then(__webpack_require__.bind(__webpack_require__, /*! ./../../../src/pages/Sxs.js?export=default */ "./src/pages/Sxs.js?export=default"))
 };
 exports.head = {};
 

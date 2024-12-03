@@ -5,7 +5,7 @@ exports.components = {
   "component---src-pages-blog-js": () => import("./../../../src/pages/blog.js?export=default" /* webpackChunkName: "component---src-pages-blog-js" */),
   "component---src-pages-contact-js": () => import("./../../../src/pages/contact.js?export=default" /* webpackChunkName: "component---src-pages-contact-js" */),
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js?export=default" /* webpackChunkName: "component---src-pages-index-js" */),
-  "component---src-templates-blog-post-js": () => import("./../../../src/templates/blog-post.js?export=default" /* webpackChunkName: "component---src-templates-blog-post-js" */)
+  "component---src-pages-sxs-js": () => import("./../../../src/pages/Sxs.js?export=default" /* webpackChunkName: "component---src-pages-sxs-js" */)
 }
 
 

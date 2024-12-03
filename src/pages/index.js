@@ -1,85 +1,51 @@
 import React from "react";
-import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Seo from '../components/Seo'; 
-import { motion } from 'framer-motion';
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
 
 const IndexPage = ({ data }) => {
-  const posts = data.allMdx.nodes || [];
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
+  const posts = data.allMdx.edges;
 
   return (
     <Layout>
-      <Seo title="Welcome to My Blog" />
-      <motion.div 
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="flex flex-col items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20"
-      >
-        <h1 className="text-5xl font-extrabold text-center mb-6">Welcome to My Blog</h1>
-        <p className="text-2xl max-w-2xl mx-auto leading-relaxed text-center">
-          Discover expert insights and practical strategies to help you make informed financial decisions 
-          and achieve your money goals.
-        </p>
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex justify-center gap-6 mt-10"
-        >
-          <Link 
-            to="/blog" 
-            className="px-10 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
-          >
-            Start Reading
-          </Link>
-          <Link 
-            to="/about" 
-            className="px-10 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
-          >
-            Learn More
-          </Link>
-        </motion.div>
-      </motion.div>
+      <h1 className="text-4xl font-bold mb-8">Welcome to My Blog!</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map(({ node }) => (
+          <div key={node.id} className="bg-white shadow-lg rounded-lg p-6">
+            <h2 className="text-2xl font-semibold">{node.frontmatter.title}</h2>
+            {node.frontmatter.image && (
+              <img
+                src={node.frontmatter.image}
+                alt={node.frontmatter.title}
+                className="w-full h-auto rounded-lg mt-4"
+              />
+            )}
+            <p className="mt-4">{node.excerpt}</p>
+            <Link
+              to={node.fields.slug}
+              className="text-blue-600 hover:underline mt-4 block"
+            >
+              Read More
+            </Link>
+          </div>
+        ))}
+      </div>
     </Layout>
   );
 };
 
 export const query = graphql`
   query {
-    allMdx(
-      sort: { frontmatter: { date: DESC } }
-      limit: 6
-    ) {
-      nodes {
-        id
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          author
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                width: 800
-                height: 450
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
+    allMdx {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            image
+          }
+          excerpt
+          fields {
+            slug
           }
         }
       }

@@ -1,0 +1,47 @@
+---
+title: "My First Blog Post"
+date: "2024-12-03"
+author: "JW"
+image: "../images/golf-cart.webp"  # Update path as necessary for your project
+products: ["Budgeting Tool", "Finance Guide", "Expense Tracker"]
+slug: "my-first-blog-post"
+---
+
+import { CallToAction } from "../../src/components/CallToAction"
+import { StaticImage } from "gatsby-plugin-image"
+
+# Welcome to My Blog!
+
+This is my first post on **Lolo Blog**! I'm excited to share insights about personal finance, budgeting strategies, and much more.
+
+![My Image](../images/golf-cart.webp)
+
+You can also embed images with Gatsby's `StaticImage` component:
+
+<StaticImage
+  src="../../src/images/finance-image.jpg"
+  alt="Finance Tips"
+  placeholder="blurred"
+  layout="constrained"
+  width={600}
+/>
+
+## Budgeting Tips
+
+One of the key strategies for successful budgeting is to track your expenses. Here's a simple approach:
+
+- **Track your income**.
+- **Categorize your expenses**.
+- **Set a savings goal**.
+
+<CallToAction />
+
+## Code Example
+
+Here's a basic JavaScript function that can help you calculate your monthly budget:
+
+```js
+const calculateBudget = (income, expenses) => {
+  const balance = income - expenses;
+  return `Your remaining budget is $${balance}`;
+}

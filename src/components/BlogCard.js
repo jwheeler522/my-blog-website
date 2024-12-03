@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import { motion } from 'framer-motion';
 
-const ProductCard = ({ product, isFeatured }) => {
+const BlogCard = ({ product, isFeatured }) => {
   const featuredImage = product.image ? getImage(product.image) : null;
 
   return (
@@ -23,7 +23,7 @@ const ProductCard = ({ product, isFeatured }) => {
             />
           ) : (
             <StaticImage
-              src="../../src/images/golfFun.webp"
+              src="../../src/images/default-image.jpg"
               alt="Default product image"
               className="w-full h-full transform group-hover:scale-105 transition-transform duration-300"
               imgStyle={{ objectFit: 'cover' }}
@@ -47,4 +47,4 @@ const ProductCard = ({ product, isFeatured }) => {
   );
 };
 
-export default ProductCard;
+export default BlogCard;

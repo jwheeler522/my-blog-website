@@ -1,42 +1,26 @@
-const { createFilePath } = require(`gatsby-source-filesystem`);
-const path = require(`path`);
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-
-  createTypes(`
-    type Mdx implements Node {
-      frontmatter: MdxFrontmatter
-    }
-
-    type MdxFrontmatter {
-      title: String!
-      date: Date! @dateformat
-      author: String
-      image: File @fileByRelativePath
-      hasAffiliateLinks: Boolean
-      products: [Product]
-    }
-
-    type Product {
-      name: String!
-      price: Float!
-      description: String
-      link: String!
-      image: File @fileByRelativePath
-    }
-  `);
-};
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath: `posts` });
+  // Only run on MDX nodes
+  if (node.internal.type === "Mdx") {
+    // Automatically generate slugs based on the file path
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: "posts",
+    });
+
+    // Clean the slug and remove the file extension (e.g. ".md")
+    const cleanSlug = slug.replace(/\.(md|markdown)$/, "");
+
+    // Create a 'slug' field on each MDX node
     createNodeField({
       node,
-      name: `slug`,
-      value: slug,
+      name: "slug",
+      value: cleanSlug,
     });
   }
 };
@@ -44,8 +28,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  // Fetch all MDX nodes and their slug fields
   const result = await graphql(`
-    {
+    query {
       allMdx {
         nodes {
           id
@@ -53,6 +38,18 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
           }
           frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            author
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 800
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
             products {
               name
               price
@@ -60,7 +57,11 @@ exports.createPages = async ({ graphql, actions }) => {
               link
               image {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(
+                    width: 400
+                    height: 400
+                    placeholder: BLURRED
+                  )
                 }
               }
             }
@@ -70,20 +71,22 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  // Handle errors during the GraphQL query
   if (result.errors) {
     console.error(result.errors);
-    throw result.errors;
+    throw new Error("Error fetching MDX data.");
   }
 
+  // Create a page for each MDX node
   result.data.allMdx.nodes.forEach((node) => {
-    const slug = node.fields.slug;
-    const componentPath = path.resolve(`src/templates/blog-post.js`);
+    const slug = node.fields.slug; // Get the slug from the node fields
+    const componentPath = path.resolve("src/templates/blog-post.js"); // Path to your blog-post template
 
     createPage({
-      path: slug,
-      component: componentPath,
+      path: slug, // URL path for the page (e.g., "/blog/my-first-post")
+      component: componentPath, // Template to use for the page
       context: {
-        slug: slug,
+        slug: slug, // Pass the slug as context for querying data in the template
       },
     });
   });
